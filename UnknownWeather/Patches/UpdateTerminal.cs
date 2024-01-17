@@ -36,17 +36,13 @@ namespace UnknownWeather.Patches
         public static void Postfix(StartOfRound __instance)
         {
             var position1 = __instance.screenLevelDescription.text.IndexOf("\nWeather:");
-            System.Console.WriteLine("\n\n1");
             if (position1 > -1)
             {
                 var position2 = __instance.screenLevelDescription.text.IndexOf("\n", position1);
-                System.Console.WriteLine("\n\n2");
                 if (position2 > -1)
                 {
                     string[] result = __instance.screenLevelDescription.text.Split(__instance.screenLevelDescription.text.Substring(position1, position2));
-                    System.Console.WriteLine("\n\n3");
                     __instance.screenLevelDescription.text = result[0] + result[1];
-                    System.Console.WriteLine("\n\n4");
                 }
             }
         }
